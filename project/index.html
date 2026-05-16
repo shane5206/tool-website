@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>數字轉國字大寫｜新台幣金額大寫轉換工具 - 工具網</title>
+<meta name="description" content="免費線上工具，將阿拉伯數字一鍵轉成中文國字大寫（新台幣壹仟貳佰元整），支援整數、負數、最多 16 位數，會計支票、合約、發票皆適用，自動加上「新台幣」「元整」前後綴。" />
+<meta name="keywords" content="數字轉國字大寫,中文大寫,新台幣大寫,金額大寫,支票大寫,會計大寫,壹貳參肆,線上轉換工具" />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://example.com/" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="數字轉國字大寫｜新台幣金額大寫轉換工具" />
+<meta property="og:description" content="將阿拉伯數字一鍵轉換為中文國字大寫，會計支票、合約、發票皆適用。" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="zh_TW" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="styles.css" />
+
+<!-- Structured data: WebSite + WebApplication + FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "數字轉國字大寫轉換器",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "url": "https://example.com/",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TWD" },
+      "description": "將阿拉伯數字轉為新台幣中文國字大寫的免費線上工具。"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "什麼是國字大寫？",
+          "acceptedAnswer": { "@type": "Answer", "text": "國字大寫是「零壹貳參肆伍陸柒捌玖拾佰仟」等較複雜的中文數字寫法，主要用於支票、發票、合約等正式財務文件，以防止竄改。" } },
+        { "@type": "Question", "name": "為什麼支票要寫國字大寫？",
+          "acceptedAnswer": { "@type": "Answer", "text": "因為「一二三」這類小寫中文與阿拉伯數字容易被加筆塗改，使用筆畫較多的「壹貳參」可大幅降低偽造風險，是各國金融、會計通用慣例。" } },
+        { "@type": "Question", "name": "這個工具收費嗎？",
+          "acceptedAnswer": { "@type": "Answer", "text": "完全免費。不需要註冊、不需要登入，所有轉換都在你的瀏覽器中完成，不會上傳數字到伺服器。" } }
+      ]
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7520385754428125" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header" data-screen-label="01 Header">
+  <div class="site-header__inner">
+    <a href="index.html" class="brand">
+      <span class="brand__mark">具</span>
+      <span class="brand__name">工具網<span class="brand__sub">　實用工具集合</span></span>
+    </a>
+
+    <div style="display:flex; align-items:center; gap:14px;">
+      <div class="fs-toggle" aria-label="字體大小">
+        <button data-fs="sm" type="button">A−</button>
+        <button data-fs="md" type="button" class="is-active">A</button>
+        <button data-fs="lg" type="button">A+</button>
+      </div>
+
+      <nav class="nav" aria-label="主選單">
+        <a href="index.html" class="is-active">首頁</a>
+        <a href="about.html">關於</a>
+        <a href="contact.html">聯絡</a>
+      </nav>
+
+      <button class="menu-btn" aria-label="開啟選單" type="button">≡</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- Hero + Tool -->
+  <section class="hero" data-screen-label="02 Hero & Tool">
+    <div class="container">
+      <p class="eyebrow">新台幣金額大寫轉換</p>
+      <h1>數字轉國字大寫</h1>
+      <p>輸入阿拉伯數字，自動轉換為支票、合約、發票通用的中文國字大寫格式（壹貳參肆伍陸柒捌玖）。</p>
+    </div>
+  </section>
+
+  <section class="section--tight">
+    <form class="tool" data-tool="convert" onsubmit="return false;" autocomplete="off">
+      <div class="tool__label">
+        <label for="num">輸入數字</label>
+        <span class="tool__hint">最多支援 16 位數 · 可帶千分位逗號</span>
+      </div>
+
+      <div class="input-row">
+        <div class="input-row__field">
+          <input id="num" class="num-input" type="text" inputmode="decimal"
+                 placeholder="例如：1234567" autocomplete="off" />
+          <button type="button" class="clear-btn" aria-label="清除">×</button>
+        </div>
+        <button type="button" class="btn btn--primary" id="convert-btn"
+                onclick="document.getElementById('num').dispatchEvent(new Event('input'))">
+          轉換
+        </button>
+      </div>
+
+      <div class="tool__error" role="alert" aria-live="polite"></div>
+
+      <div class="examples">
+        <span class="examples__label">範例：</span>
+        <button type="button" class="chip" data-example="1234">1,234</button>
+        <button type="button" class="chip" data-example="50000">50,000</button>
+        <button type="button" class="chip" data-example="1080000">108 萬</button>
+        <button type="button" class="chip" data-example="100000001">1 億 + 1</button>
+        <button type="button" class="chip" data-example="999999999999">兆級</button>
+      </div>
+    </form>
+
+    <div class="result" aria-live="polite">
+      <div class="result__main" data-result-main style="display:none;">
+        <button type="button" class="copy-btn" data-copy-target="main" data-main-copy>
+          複製
+        </button>
+        <div class="result__caption">會計大寫（新台幣）</div>
+        <p class="result__value" data-result-value></p>
+        <div class="result__meta" data-result-meta></div>
+      </div>
+
+      <div class="placeholder-state" data-placeholder-state>
+        在上方輸入數字，立即顯示中文大寫結果。
+      </div>
+
+      <div class="result__alt" data-result-alt style="display:none;">
+        <div class="alt-row" data-alt="upper">
+          <button class="alt-row__copy" data-copy-target='[data-alt="upper"]' aria-label="複製">⧉</button>
+          <span class="alt-row__label">大寫（純文字）</span>
+          <span class="alt-row__value"></span>
+        </div>
+        <div class="alt-row" data-alt="lower">
+          <button class="alt-row__copy" data-copy-target='[data-alt="lower"]' aria-label="複製">⧉</button>
+          <span class="alt-row__label">小寫中文</span>
+          <span class="alt-row__value"></span>
+        </div>
+        <div class="alt-row" data-alt="thousands">
+          <button class="alt-row__copy" data-copy-target='[data-alt="thousands"]' aria-label="複製">⧉</button>
+          <span class="alt-row__label">千分位</span>
+          <span class="alt-row__value"></span>
+        </div>
+        <div class="alt-row" data-alt="english">
+          <button class="alt-row__copy" data-copy-target='[data-alt="english"]' aria-label="複製">⧉</button>
+          <span class="alt-row__label">英文寫法</span>
+          <span class="alt-row__value"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ad: under tool -->
+  <div class="container" data-screen-label="03 Ad: under tool">
+    <div class="ad-slot ad-leader" role="complementary" aria-label="廣告版位">
+      <div class="ad-slot__inner">
+        廣告版位 · 728 × 90<br/>
+        <small style="text-transform:none; letter-spacing:0;">Google AdSense Leaderboard</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEO content (What / How / Who / FAQ) -->
+  <section class="section section--alt" data-screen-label="04 SEO content">
+    <div class="container">
+      <div class="seo">
+
+        <h2>什麼是「國字大寫」？</h2>
+        <p>「國字大寫」又稱「大寫數字」，是中文數字的正式寫法，使用「零、壹、貳、參、肆、伍、陸、柒、捌、玖、拾、佰、仟、萬、億」等筆畫繁複的字。<strong>主要用於支票、本票、發票、合約、報表等需要金額正確且不可竄改的正式文件</strong>，是台灣會計與金融行業的通用標準。</p>
+        <p>例如：阿拉伯數字 <code>1,234</code> 對應大寫為「<strong>壹仟貳佰參拾肆</strong>」；加上幣別與單位後即為「<strong>新台幣壹仟貳佰參拾肆元整</strong>」。</p>
+
+        <h2>怎麼使用這個工具？</h2>
+        <ol>
+          <li>在上方輸入框輸入阿拉伯數字（可帶千分位逗號）。</li>
+          <li>系統會即時顯示「新台幣 ⋯ 元整」標準會計格式。</li>
+          <li>下方同步提供小寫中文、千分位、英文寫法等四種衍生格式。</li>
+          <li>點右上角「複製」按鈕，即可貼到 Word、Excel、Email 或銀行表單。</li>
+          <li>若需要不同字級顯示，可在右上角切換 <code>A−／A／A+</code> 字體大小。</li>
+        </ol>
+
+        <!-- In-article ad -->
+        <div class="ad-slot ad-inarticle" role="complementary" aria-label="文章中廣告">
+          <div class="ad-slot__inner">
+            廣告版位 · In-Article<br/>
+            <small style="text-transform:none; letter-spacing:0;">Google AdSense In-article</small>
+          </div>
+        </div>
+
+        <h2>誰會用到這個工具？</h2>
+        <ul>
+          <li><strong>會計、出納人員</strong>　每日需要開立支票、製作傳票、編製財報。</li>
+          <li><strong>中小企業老闆</strong>　簽訂合約、開立發票時填寫金額大寫。</li>
+          <li><strong>銀行行員與保險業務</strong>　處理票據、收據、保單金額。</li>
+          <li><strong>地政士、律師、代書</strong>　不動產買賣、遺囑等正式文書。</li>
+          <li><strong>學生與一般民眾</strong>　學習中文大寫寫法、填寫紅包袋或正式信件。</li>
+        </ul>
+
+        <h2>常見問題 FAQ</h2>
+
+        <details class="faq__item">
+          <summary class="faq__q">支票寫錯大寫可以塗改嗎？</summary>
+          <div class="faq__a">
+            <p>不建議。依《票據法》及銀行慣例，金額欄一旦塗改即可能被認定為無效票據。最保險的做法是直接作廢、重新開立新的支票，並在票根註明作廢編號。</p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__q">「圓」、「元」、「圓整」哪一個正確？</summary>
+          <div class="faq__a">
+            <p>「元」與「圓」都是合法寫法，台灣銀行界與會計界以「元」為主流；中國大陸與部分舊式票據則使用「圓」。本工具預設使用「<strong>新台幣 ⋯ 元整</strong>」這個最通用的格式。</p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__q">為什麼要寫「元整」？</summary>
+          <div class="faq__a">
+            <p>「整」字代表金額到此為止、沒有零頭，可以防止有人在數字後方添筆變造金額。如果金額含「角、分」，則改用「⋯元⋯角⋯分」或「⋯元⋯分」格式，不再加「整」字。</p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__q">最大可以轉換到幾位數？</summary>
+          <div class="faq__a">
+            <p>本工具目前支援最多 <strong>16 位數</strong>（千兆級），對絕大多數企業與個人應用綽綽有餘。如果你有更大的數字需求，歡迎透過聯絡頁告訴我們。</p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__q">輸入的數字會被傳到伺服器嗎？</summary>
+          <div class="faq__a">
+            <p>不會。所有轉換邏輯在你的瀏覽器本機執行，不會收集、儲存、上傳任何輸入內容，請放心使用。詳見<a href="privacy.html">隱私權政策</a>。</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Other tools -->
+  <section class="section" data-screen-label="05 Other tools">
+    <div class="container">
+      <p class="eyebrow">更多工具</p>
+      <h2 style="font-size:1.6rem;">工具網其他實用工具</h2>
+      <p style="color:var(--ink-500); max-width:640px;">我們正在打造一系列輕量、無廣告干擾的線上工具，幫你把繁瑣的小事一鍵搞定。</p>
+
+      <div class="tools-grid">
+        <a class="tool-card is-active" href="index.html">
+          <span class="tool-card__icon">壹</span>
+          <span class="tool-card__title">數字轉國字大寫</span>
+          <span class="tool-card__desc">新台幣金額轉中文大寫，會計、支票、合約適用。</span>
+        </a>
+        <a class="tool-card" href="discount.html">
+          <span class="tool-card__icon">％</span>
+          <span class="tool-card__title">折扣與毛利計算機</span>
+          <span class="tool-card__desc">輸入原價、折數，立即得出實付金額與毛利。</span>
+        </a>
+        <a class="tool-card" href="vat.html">
+          <span class="tool-card__icon">稅</span>
+          <span class="tool-card__title">營業稅／發票試算</span>
+          <span class="tool-card__desc">外加、內含 5% 營業稅，含未稅金額互推。</span>
+        </a>
+        <a class="tool-card" href="date-converter.html">
+          <span class="tool-card__icon">日</span>
+          <span class="tool-card__title">民國／西元日期轉換</span>
+          <span class="tool-card__desc">民國年、西元年、星期、中文寫法一鍵互換。</span>
+        </a>
+        <a class="tool-card" href="address.html">
+          <span class="tool-card__icon">EN</span>
+          <span class="tool-card__title">台灣地址中翻英</span>
+          <span class="tool-card__desc">中華郵政漢語拼音規範，自動處理樓室巷弄與縣市英文。</span>
+        </a>
+        <a class="tool-card is-soon" href="#">
+          <span class="tool-card__icon">字</span>
+          <span class="tool-card__title">中文字數計算</span>
+          <span class="tool-card__desc">統計文章字數、字元、行數，含或不含空白。</span>
+        </a>
+        <a class="tool-card is-soon" href="#">
+          <span class="tool-card__icon">$</span>
+          <span class="tool-card__title">匯率換算</span>
+          <span class="tool-card__desc">即時匯率，TWD ⇄ USD/JPY/EUR 等常用幣別。</span>
+        </a>
+        <a class="tool-card is-soon" href="#">
+          <span class="tool-card__icon">QR</span>
+          <span class="tool-card__title">QR Code 產生器</span>
+          <span class="tool-card__desc">將網址、Wi-Fi、文字快速產生 QR Code。</span>
+        </a>
+        <a class="tool-card is-soon" href="#">
+          <span class="tool-card__icon">時</span>
+          <span class="tool-card__title">時區世界時鐘</span>
+          <span class="tool-card__desc">查看全球主要城市目前時間，安排會議好幫手。</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <a href="index.html" class="brand">
+          <span class="brand__mark">具</span>
+          <span class="brand__name">工具網</span>
+        </a>
+        <p>輕量、原創、無干擾的線上工具集合，致力於幫你把日常的小麻煩變簡單。</p>
+      </div>
+      <div class="footer-links" aria-label="頁尾連結">
+        <a href="about.html">關於</a>
+        <a href="contact.html">聯絡</a>
+        <a href="privacy.html">隱私權政策</a>
+        <a href="terms.html">服務條款</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 工具網 (toolnet.example)　本站內容皆為原創。</div>
+  </div>
+</footer>
+
+<script src="converter.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
